@@ -205,17 +205,17 @@ class SignInScreenState extends State<SignInScreen> {
             if (state.isNewUser) {
               context.read<UserDetailsCubit>().fetchUserDetails(state.user.uid);
               //navigate to select profile screen
-              Navigator.of(context)
-                  .pushReplacementNamed(Routes.login, arguments: false);
               //Navigator.of(context)
-                //  .pushReplacementNamed(Routes.selectProfile, arguments: true);
+                //  .pushReplacementNamed(Routes.login, arguments: false);
+              Navigator.of(context)
+                  .pushReplacementNamed(Routes.selectProfile, arguments: true);
             } else {
               //get user detials of signed in user
               context.read<UserDetailsCubit>().fetchUserDetails(state.user.uid);
-             // Navigator.of(context)
-               //   .pushReplacementNamed(Routes.home, arguments: false);
               Navigator.of(context)
-                  .pushReplacementNamed(Routes.login, arguments: false);
+                  .pushReplacementNamed(Routes.home, arguments: false);
+             // Navigator.of(context)
+               //   .pushReplacementNamed(Routes.login, arguments: false);
             }
           } else if (state is SignInFailure &&
               state.authProvider == AuthProvider.email) {

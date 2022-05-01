@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen>
     showAppUnderMaintenanceDialog();
     setQuizMenu();
     _initLocalNotification();
-    checkForUpdates();
+    //checkForUpdates();
     setupInteractedMessage();
     createAds();
     WidgetsBinding.instance!.addObserver(this);
