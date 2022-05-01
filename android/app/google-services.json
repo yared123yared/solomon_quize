@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "432910986087",
+    "project_id": "thechristianapp-55191",
+    "storage_bucket": "thechristianapp-55191.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432910986087:android:69b56603e4b96afdddddc2",
+        "android_client_info": {
+          "package_name": "com.thechristianapp.quiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432910986087-tltui3sdnvmd89mc4o45roeu1agqqfl0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thechristianapp.quiz",
+            "certificate_hash": "65b5e925f034a7d7519c253a6223ddf1beb62bed"
+          }
+        },
+        {
+          "client_id": "432910986087-d65h8aqasskdsbo7h0d5it33bp13te0l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQxdAefxU8jDTm3ytS4rPM7qq4Jbaxt_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432910986087-d65h8aqasskdsbo7h0d5it33bp13te0l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
