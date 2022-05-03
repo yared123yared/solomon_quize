@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen>
     showAppUnderMaintenanceDialog();
     setQuizMenu();
     _initLocalNotification();
-    //checkForUpdates();
+    checkForUpdates();
     setupInteractedMessage();
     createAds();
     WidgetsBinding.instance!.addObserver(this);
@@ -202,10 +202,10 @@ class _HomeScreenState extends State<HomeScreen>
         _quizTypes.removeWhere(
             (element) => element.quizTypeEnum == QuizTypes.audioQuestions);
       }
-      if (systemCubit.getIsFunNLearnAvailable() == "0") {
+     /* if (systemCubit.getIsFunNLearnAvailable() == "0") {
         _quizTypes.removeWhere(
             (element) => element.quizTypeEnum == QuizTypes.funAndLearn);
-      }
+      }*/
       if (!systemCubit.getIsGuessTheWordAvailable()) {
         _quizTypes.removeWhere(
             (element) => element.quizTypeEnum == QuizTypes.guessTheWord);
@@ -577,11 +577,13 @@ class _HomeScreenState extends State<HomeScreen>
         "numberOfPlayer": 1,
         "quizName": "True & False"
       });
-    } else if (_quizTypes[quizTypeIndex].quizTypeEnum ==
+    }
+    /*else if (_quizTypes[quizTypeIndex].quizTypeEnum ==
         QuizTypes.funAndLearn) {
       Navigator.of(context).pushNamed(Routes.category,
           arguments: {"quizType": QuizTypes.funAndLearn});
-    } else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.groupPlay) {
+    } */
+    else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.groupPlay) {
       context
           .read<MultiUserBattleRoomCubit>()
           .updateState(MultiUserBattleRoomInitial());
@@ -737,9 +739,9 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildSelfChallenge(double statusBarPadding) {
     return GestureDetector(
       onTap: () {
-        context.read<QuizCategoryCubit>().updateState(QuizCategoryInitial());
-        context.read<SubCategoryCubit>().updateState(SubCategoryInitial());
-        Navigator.of(context).pushNamed(Routes.selfChallenge);
+        // context.read<QuizCategoryCubit>().updateState(QuizCategoryInitial());
+        // context.read<SubCategoryCubit>().updateState(SubCategoryInitial());
+        // Navigator.of(context).pushNamed(Routes.selfChallenge);
       },
       child: Align(
         alignment: Alignment.topCenter,

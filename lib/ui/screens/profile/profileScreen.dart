@@ -129,7 +129,7 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
           Spacer(),
-          canEditField
+        /*  canEditField
               ? GestureDetector(
                   onTap: onEdit,
                   child: Icon(
@@ -137,7 +137,7 @@ class ProfileScreen extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                 )
-              : SizedBox(),
+              : SizedBox(),*/
         ],
       ),
       width: boxConstraints.maxWidth * (0.85),
@@ -248,9 +248,9 @@ class ProfileScreen extends StatelessWidget {
                                         sigmaX: 5.0, sigmaY: 5.0),
                                     child: GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context).pushNamed(
+                                       /* Navigator.of(context).pushNamed(
                                             Routes.selectProfile,
-                                            arguments: false);
+                                            arguments: false);*/
                                       },
                                       child: Container(
                                         alignment: Alignment.center,
@@ -369,7 +369,7 @@ class ProfileScreen extends StatelessWidget {
                         MenuTile(
                           isSvgIcon: true,
                           onTap: () {
-                            Navigator.of(context).pushNamed(Routes.bookmark);
+                           // Navigator.of(context).pushNamed(Routes.bookmark);
                           },
                           title: "bookmarkLbl",
                           leadingIcon: "bookmark_icon.svg", //theme icon
@@ -377,8 +377,8 @@ class ProfileScreen extends StatelessWidget {
                         MenuTile(
                           isSvgIcon: true,
                           onTap: () {
-                            Navigator.of(context)
-                                .pushNamed(Routes.referAndEarn);
+                          /*  Navigator.of(context)
+                                .pushNamed(Routes.referAndEarn);*/
                           },
                           title: "inviteFriendsLbl",
                           leadingIcon: "invite_friends.svg", //theme icon
@@ -386,7 +386,7 @@ class ProfileScreen extends StatelessWidget {
                         MenuTile(
                           isSvgIcon: true,
                           onTap: () {
-                            showDialog<bool>(
+                           /* showDialog<bool>(
                                 context: context,
                                 builder: (_) => AlertDialog(
                                       content: Text(
@@ -434,7 +434,7 @@ class ProfileScreen extends StatelessWidget {
                                             .read<UserDetailsCubit>()
                                             .getUserId());
                               }
-                            });
+                            });*/
                           },
                           title: deleteAccountKey,
                           leadingIcon: "delete.svg", //theme icon
@@ -442,7 +442,7 @@ class ProfileScreen extends StatelessWidget {
                         MenuTile(
                           isSvgIcon: true,
                           onTap: () {
-                            showDialog(
+                           showDialog(
                                 context: context,
                                 builder: (_) => AlertDialog(
                                       content: Text(
