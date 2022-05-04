@@ -25,15 +25,20 @@ QuizTypes getQuizTypeEnumFromTitle(String? title) {
     return QuizTypes.contest;
   } else if (title == "dailyQuiz") {
     return QuizTypes.dailyQuiz;
-  } else if (title == "groupPlay") {
-    return QuizTypes.groupPlay;
-  } else if (title == "battleQuiz") {
-    return QuizTypes.battle;
-  } else if (title == "funAndLearn") {
-    return QuizTypes.funAndLearn;
-  } else if (title == "guessTheWord") {
-    return QuizTypes.guessTheWord;
-  } else if (title == "trueAndFalse") {
+  }
+  //  else if (title == "groupPlay") {
+  //   return QuizTypes.groupPlay;
+  // }
+  // else if (title == "battleQuiz") {
+  //   return QuizTypes.battle;
+  // }
+  // else if (title == "funAndLearn") {
+  //   return QuizTypes.funAndLearn;
+  // }
+  // else if (title == "guessTheWord") {
+  //   return QuizTypes.guessTheWord;
+  // }
+  else if (title == "trueAndFalse") {
     return QuizTypes.trueAndFalse;
   } else if (title == "selfChallenge") {
     return QuizTypes.selfChallenge;
@@ -43,9 +48,10 @@ QuizTypes getQuizTypeEnumFromTitle(String? title) {
     return QuizTypes.mathMania;
   } else if (title == audioQuestionsKey) {
     return QuizTypes.audioQuestions;
-  } else if (title == examKey) {
-    return QuizTypes.exam;
-  } else if (title == tournamentKey) {
+  }
+ // else if (title == examKey) {
+   // return QuizTypes.exam;}
+  else if (title == tournamentKey) {
     return QuizTypes.tournament;
   }
 
@@ -58,7 +64,11 @@ class QuizType {
   late QuizTypes quizTypeEnum;
   late String description;
 
-  QuizType({required String title, required String image, required bool active, required description}) {
+  QuizType(
+      {required String title,
+        required String image,
+        required bool active,
+        required description}) {
     this.title = title;
     this.image = "assets/images/$image";
     this.active = active;

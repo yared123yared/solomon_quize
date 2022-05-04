@@ -8,31 +8,31 @@ final List<QuizType> quizTypes = [
       image: "quizzone_icon.svg",
       active: true,
       description: desQuizZone),
-  QuizType(
-      title: battleQuiz,
-      image: "battle_quiz.svg",
-      active: true,
-      description: desBattleQuiz),
+  // QuizType(
+  //     title: battleQuiz,
+  //     image: "battle_quiz.svg",
+  //     active: true,
+  //     description: desBattleQuiz),
   QuizType(
       title: contest,
       image: "contests_icon.svg",
       active: true,
       description: desContest),
-  QuizType(
-      title: groupPlay,
-      image: "groupplay_icon.svg",
-      active: true,
-      description: desGroupPlay),
-  QuizType(
-      title: guessTheWord,
-      image: "Guess the word.svg",
-      active: true,
-      description: desGuessTheWord),
-  QuizType(
-      title: funAndLearn,
-      image: "fun_nlearn.svg",
-      active: true,
-      description: desFunAndLearn),
+  // QuizType(
+  //     title: groupPlay,
+  //     image: "groupplay_icon.svg",
+  //     active: true,
+  //     description: desGroupPlay),
+  // QuizType(
+  //     title: guessTheWord,
+  //     image: "Guess the word.svg",
+  //     active: true,
+  //     description: desGuessTheWord),
+  // QuizType(
+  //     title: funAndLearn,
+  //     image: "fun_nlearn.svg",
+  //     active: true,
+  //     description: desFunAndLearn),
   QuizType(
       title: dailyQuiz,
       image: "daily_quiz.svg",
@@ -43,7 +43,7 @@ final List<QuizType> quizTypes = [
       image: "audio_questions.svg",
       active: true,
       description: desAudioQuestionsKey),
-  QuizType(
-      title: examKey, image: "exam.svg", active: true, description: desExamKey),
+ // QuizType(
+    //  title: examKey, image: "exam.svg", active: true, description: desExamKey),
   //QuizType(title: tournamentKey, image: "audio_questions.svg", active: true, description: desTournamentKey),
 ];

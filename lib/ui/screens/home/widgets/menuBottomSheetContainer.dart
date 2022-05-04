@@ -51,7 +51,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                   )
                 : SizedBox(),
 
-            MenuTile(
+        /*    MenuTile(
               isSvgIcon: true,
               onTap: () {
                 Navigator.of(context).pop();
@@ -71,18 +71,18 @@ class MenuBottomSheetContainer extends StatelessWidget {
                     title: coinStoreKey,
                     leadingIcon: "coin_store.svg",
                   )
-                : SizedBox(),
+                : SizedBox(),*/
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamed(Routes.badges);
+               /* Navigator.of(context).pop();
+                Navigator.of(context).pushNamed(Routes.badges);*/
               },
               title: badgesKey,
               leadingIcon: "badges.svg",
             ),
 
-            MenuTile(
+         /*   MenuTile(
               isSvgIcon: true,
               onTap: () {
                 Navigator.of(context).pop();
@@ -90,23 +90,23 @@ class MenuBottomSheetContainer extends StatelessWidget {
               },
               title: rewardsLbl,
               leadingIcon: "rewards.svg",
-            ),
+            ),*/
 
             context.read<SystemConfigCubit>().getLanguageMode() == "1"
                 ? MenuTile(
                     isSvgIcon: true,
                     onTap: () {
-                      Navigator.of(context).pop();
+                     /* Navigator.of(context).pop();
                       showDialog(
                           context: context,
-                          builder: (_) => LanguageDailogContainer());
+                          builder: (_) => LanguageDailogContainer());*/
                     },
                     title: languageKey,
                     leadingIcon: "language_icon.svg",
                   )
                 : SizedBox(),
 
-            MenuTile(
+           /* MenuTile(
               isSvgIcon: true,
               onTap: () {
                 Navigator.of(context).pop();
@@ -114,8 +114,8 @@ class MenuBottomSheetContainer extends StatelessWidget {
               },
               title: themeKey,
               leadingIcon: "theme.svg", //theme icon
-            ),
-
+            ),*/
+/*
             MenuTile(
               isSvgIcon: true,
               onTap: () {
@@ -126,14 +126,14 @@ class MenuBottomSheetContainer extends StatelessWidget {
               },
               title: statisticsLabelKey,
               leadingIcon: "statistics.svg", //theme icon
-            ),
+            ),*/
 
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-                Navigator.of(context).pop();
+              /*  Navigator.of(context).pop();
 
-                Navigator.of(context).pushNamed(Routes.notification);
+                Navigator.of(context).pushNamed(Routes.notification);*/
                 //
               },
               title: "notificationLbl",
@@ -143,9 +143,9 @@ class MenuBottomSheetContainer extends StatelessWidget {
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-                Navigator.of(context).pop();
+               /* Navigator.of(context).pop();
 
-                Navigator.of(context).pushNamed(Routes.profile);
+                Navigator.of(context).pushNamed(Routes.profile);*/
               },
               title: accountKey,
               leadingIcon: "account.svg", //theme icon
@@ -154,9 +154,9 @@ class MenuBottomSheetContainer extends StatelessWidget {
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-                Navigator.of(context).pop();
+             /*   Navigator.of(context).pop();
                 Navigator.of(context)
-                    .pushNamed(Routes.appSettings, arguments: howToPlayLbl);
+                    .pushNamed(Routes.appSettings, arguments: howToPlayLbl);*/
               },
               title: howToPlayLbl,
               leadingIcon: "howtoplay_icon.svg", //theme icon
@@ -165,9 +165,9 @@ class MenuBottomSheetContainer extends StatelessWidget {
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-                Navigator.of(context).pop();
+               /* Navigator.of(context).pop();
 
-                Navigator.of(context).pushNamed(Routes.aboutApp);
+                Navigator.of(context).pushNamed(Routes.aboutApp);*/
               },
               title: aboutQuizAppKey,
               leadingIcon: "about_us.svg", //theme icon
@@ -176,11 +176,11 @@ class MenuBottomSheetContainer extends StatelessWidget {
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-                Navigator.of(context).pop();
+              /*  Navigator.of(context).pop();
                 LaunchReview.launch(
                   androidAppId: packageName,
                   iOSAppId: "585027354",
-                );
+                );*/
               },
               title: "rateUsLbl",
               leadingIcon: "rateus_icon.svg", //theme icon
@@ -189,7 +189,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-                Navigator.of(context).pop();
+              /*  Navigator.of(context).pop();
                 try {
                   if (Platform.isAndroid) {
                     Share.share(appName +
@@ -211,7 +211,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                   }
                 } catch (e) {
                   UiUtils.setSnackbar(e.toString(), context, false);
-                }
+                }*/
               },
               title: "shareAppLbl",
               leadingIcon: "share_app.svg", //theme icon
