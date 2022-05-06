@@ -99,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
               width: 30.0,
               transform: Matrix4.identity()..scale(0.7),
               transformAlignment: Alignment.center,
-              child: SvgPicture.asset(UiUtils.getImagePath(leadingIcon))),
+              child: Image.asset(UiUtils.getImagePath(leadingIcon))),
           SizedBox(
             width: boxConstraints.maxWidth * (0.03),
           ),
@@ -290,7 +290,7 @@ class ProfileScreen extends StatelessWidget {
                           canEditField: true,
                           boxConstraints: constraints,
                           context: context,
-                          leadingIcon: "name_icon.svg",
+                          leadingIcon: "name_icon.png",
                           onEdit: () {
                             editProfileFieldBottomSheet(
                               AppLocalization.of(context)!
@@ -315,7 +315,7 @@ class ProfileScreen extends StatelessWidget {
                                   AuthProvider.mobile),
                           boxConstraints: constraints,
                           context: context,
-                          leadingIcon: "mobile_number.svg",
+                          leadingIcon: "mobile_number.png",
                           onEdit: () {
                             editProfileFieldBottomSheet(
                                 AppLocalization.of(context)!
@@ -339,7 +339,7 @@ class ProfileScreen extends StatelessWidget {
                                   AuthProvider.mobile),
                           boxConstraints: constraints,
                           context: context,
-                          leadingIcon: "email_icon.svg",
+                          leadingIcon: "email_icon.png",
                           onEdit: () {
                             editProfileFieldBottomSheet(
                                 AppLocalization.of(context)!
@@ -366,14 +366,14 @@ class ProfileScreen extends StatelessWidget {
                           width: constraints.maxWidth * (0.825),
                           height: 1.75,
                         ),
-                        MenuTile(
+                       /* MenuTile(
                           isSvgIcon: true,
                           onTap: () {
                            // Navigator.of(context).pushNamed(Routes.bookmark);
                           },
                           title: "bookmarkLbl",
                           leadingIcon: "bookmark_icon.svg", //theme icon
-                        ),
+                        ),*/
                         MenuTile(
                           isSvgIcon: true,
                           onTap: () {
@@ -381,7 +381,7 @@ class ProfileScreen extends StatelessWidget {
                                 .pushNamed(Routes.referAndEarn);*/
                           },
                           title: "inviteFriendsLbl",
-                          leadingIcon: "invite_friends.svg", //theme icon
+                          leadingIcon: "invite_friends.png", //theme icon
                         ),
                         MenuTile(
                           isSvgIcon: true,
@@ -437,7 +437,7 @@ class ProfileScreen extends StatelessWidget {
                             });*/
                           },
                           title: deleteAccountKey,
-                          leadingIcon: "delete.svg", //theme icon
+                          leadingIcon: "delete.png", //theme icon
                         ),
                         MenuTile(
                           isSvgIcon: true,
@@ -511,7 +511,7 @@ class ProfileScreen extends StatelessWidget {
                                     ));
                           },
                           title: "logoutLbl",
-                          leadingIcon: "logout_icon.svg", //theme icon
+                          leadingIcon: "logout_icon.png", //theme icon
                         ),
                       ],
                     );

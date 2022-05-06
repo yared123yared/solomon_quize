@@ -47,7 +47,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                       Navigator.of(context).pushNamed(Routes.wallet);
                     },
                     title: walletKey,
-                    leadingIcon: "wallet.svg",
+                    leadingIcon: "wallet.png",
                   )
                 : SizedBox(),
 
@@ -79,7 +79,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                 Navigator.of(context).pushNamed(Routes.badges);*/
               },
               title: badgesKey,
-              leadingIcon: "badges.svg",
+              leadingIcon: "badges.png",
             ),
 
          /*   MenuTile(
@@ -102,7 +102,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                           builder: (_) => LanguageDailogContainer());*/
                     },
                     title: languageKey,
-                    leadingIcon: "language_icon.svg",
+                    leadingIcon: "language_icon.png",
                   )
                 : SizedBox(),
 
@@ -137,7 +137,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                 //
               },
               title: "notificationLbl",
-              leadingIcon: "notification.svg", //theme icon
+              leadingIcon: "notification.png", //theme icon
             ),
 
             MenuTile(
@@ -148,7 +148,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                 Navigator.of(context).pushNamed(Routes.profile);*/
               },
               title: accountKey,
-              leadingIcon: "account.svg", //theme icon
+              leadingIcon: "account.png", //theme icon
             ),
 
             MenuTile(
@@ -159,7 +159,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                     .pushNamed(Routes.appSettings, arguments: howToPlayLbl);*/
               },
               title: howToPlayLbl,
-              leadingIcon: "howtoplay_icon.svg", //theme icon
+              leadingIcon: "howtoplay_icon.png", //theme icon
             ),
 
             MenuTile(
@@ -170,21 +170,21 @@ class MenuBottomSheetContainer extends StatelessWidget {
                 Navigator.of(context).pushNamed(Routes.aboutApp);*/
               },
               title: aboutQuizAppKey,
-              leadingIcon: "about_us.svg", //theme icon
+              leadingIcon: "about_us.png", //theme icon
             ),
-
+/*
             MenuTile(
               isSvgIcon: true,
               onTap: () {
-              /*  Navigator.of(context).pop();
+              *//*  Navigator.of(context).pop();
                 LaunchReview.launch(
                   androidAppId: packageName,
                   iOSAppId: "585027354",
-                );*/
+                );*//*
               },
               title: "rateUsLbl",
               leadingIcon: "rateus_icon.svg", //theme icon
-            ),
+            ),*/
 
             MenuTile(
               isSvgIcon: true,
@@ -214,7 +214,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                 }*/
               },
               title: "shareAppLbl",
-              leadingIcon: "share_app.svg", //theme icon
+              leadingIcon: "share_app.png", //theme icon
             ),
 
             SizedBox(

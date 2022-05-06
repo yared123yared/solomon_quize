@@ -487,8 +487,8 @@ class SignInScreenState extends State<SignInScreen> {
             children: <Widget>[
               kIsWeb || Platform.isAndroid
                   ? InkWell(
-                      child: SvgPicture.asset(
-                        'assets/images/google_icon.svg',
+                      child: Image.asset(
+                        'assets/images/google_icon.png',
                         height: MediaQuery.of(context).size.height * .07,
                         width: MediaQuery.of(context).size.width * .1,
                       ),
@@ -515,13 +515,13 @@ class SignInScreenState extends State<SignInScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 child: InkWell(
-                  child: SvgPicture.asset(
-                    'assets/images/facebook_icon.svg',
+                  child: Image.asset(
+                    'assets/images/facebook_icon.png',
                     height: MediaQuery.of(context).size.height * .07,
                     width: MediaQuery.of(context).size.width * .1,
                   ),
                   onTap: () async {
-                    context.read<SignInCubit>().signInUser(AuthProvider.fb);
+                    //context.read<SignInCubit>().signInUser(AuthProvider.fb);
                     // context.read<SignInCubit>().signInUser(AuthProvider.gmail);
                   },
                 ),
