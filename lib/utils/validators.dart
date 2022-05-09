@@ -12,6 +12,19 @@ class Validators {
     }
   }
 
+  static String? validatePassword(String value, String? passwordRequiredMessage,
+      String? validPasswordMessage) {
+    RegExp regex =
+    RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+    if (value.length == 0) {
+      return passwordRequiredMessage;
+    } else if (!regex.hasMatch(value)) {
+      return validPasswordMessage;
+    } else {
+      return null;
+    }
+  }
+
   static bool isValidEmail(String value) {
     if (value.isEmpty) {
       return false;

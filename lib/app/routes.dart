@@ -46,6 +46,7 @@ import 'package:flutterquiz/ui/screens/splashScreen.dart';
 import 'package:flutterquiz/ui/screens/statisticsScreen.dart';
 import 'package:flutterquiz/ui/screens/tournament/tournamentDetailsScreen.dart';
 import 'package:flutterquiz/ui/screens/tournament/tournamentScreen.dart';
+import 'package:flutterquiz/ui/screens/verse/verseOfDay.dart';
 import 'package:flutterquiz/ui/screens/wallet/walletScreen.dart';
 
 class Routes {
@@ -83,6 +84,7 @@ class Routes {
   static const multiUserBattleRoomQuizResult = "/multiUserBattleRoomQuizResult";
 
   static const contest = "/contest";
+  static const verse = "/verse";
   static const contestLeaderboard = "/contestLeaderboard";
   static const funAndLearnTitle = "/funAndLearnTitle";
   static const funAndLearn = "funAndLearn";
@@ -118,6 +120,8 @@ class Routes {
         return CupertinoPageRoute(builder: (context) => SignInScreen());
       case signUp:
         return CupertinoPageRoute(builder: (context) => SignUpScreen());
+      case verse:
+        return CupertinoPageRoute(builder: (context) => VerseOfDay());
       case otpScreen:
         return OtpScreen.route(routeSettings);
       case subcategoryAndLevel:

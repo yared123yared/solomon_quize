@@ -47,6 +47,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hive_flutter/hive_flutter.dart';
 
+
 Future<Widget> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -174,8 +175,10 @@ class MyApp extends StatelessWidget {
 
           return MaterialApp(
             builder: (context, widget) {
+
               return ScrollConfiguration(
                   behavior: GlobalScrollBehavior(), child: widget!);
+
             },
             locale: currentLanguage,
             theme: appThemeData[currentTheme]!.copyWith(

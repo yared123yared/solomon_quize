@@ -21,6 +21,8 @@ import 'package:flutterquiz/utils/uiUtils.dart';
 import 'package:flutterquiz/utils/validators.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../widgets/registerBackGroundContainer.dart';
+
 class SignInScreen extends StatefulWidget {
   @override
   SignInScreenState createState() => SignInScreenState();
@@ -42,7 +44,8 @@ class SignInScreenState extends State<SignInScreen> {
         builder: (context) => Scaffold(
           body: Stack(
             children: <Widget>[
-              PageBackgroundGradientContainer(),
+              registerBackGroundContainer(),
+              //PageBackgroundGradientContainer(),
               SingleChildScrollView(
                 child: showForm(context),
               ),
@@ -70,7 +73,7 @@ class SignInScreenState extends State<SignInScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * .03,
             ),
-            showTopImage(),
+           // showTopImage(),
             SizedBox(
               height: MediaQuery.of(context).size.height * .03,
             ),
@@ -143,7 +146,13 @@ class SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
-
+  // Start New Reg Code
+  bool validateStructure(String value){
+    String  pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+    RegExp regExp = new RegExp(pattern);
+    return regExp.hasMatch(value);
+  }
+  //End
   Widget showPwd() {
     return TextFormField(
       controller: edtPwd,
@@ -500,8 +509,8 @@ class SignInScreenState extends State<SignInScreen> {
                       },
                     )
                   : InkWell(
-                      child: SvgPicture.asset(
-                        'assets/images/appleicon.svg',
+                child: Image.asset(
+                  'assets/images/appleicon.png',
                         height: MediaQuery.of(context).size.height * .07,
                         width: MediaQuery.of(context).size.width * .1,
                       ),
@@ -551,7 +560,7 @@ class SignInScreenState extends State<SignInScreen> {
           Text(
             AppLocalization.of(context)!.getTranslatedValues('noAccountLbl')!,
             style: TextStyle(
-              color: Theme.of(context).colorScheme.secondary.withOpacity(0.4),
+              color: Theme.of(context).colorScheme.secondary.withOpacity(1.0),
             ),
           ),
           SizedBox(width: 4),
@@ -563,7 +572,7 @@ class SignInScreenState extends State<SignInScreen> {
             child: Text(
               AppLocalization.of(context)!.getTranslatedValues('signUpLbl')!,
               style: TextStyle(
-                  color: Theme.of(context).primaryColor.withOpacity(0.5)),
+                  color: Theme.of(context).primaryColor.withOpacity(1.0)),
             ),
           ),
         ],

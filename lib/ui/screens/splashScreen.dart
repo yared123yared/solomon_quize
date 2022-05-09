@@ -145,7 +145,7 @@ class _SplashScreenState extends State<SplashScreen>
               child: child,
             );
           },
-          child: Lottie.asset("assets/animations/open.json",
+          child: Lottie.asset("assets/animations/init_load.json",
               controller: animationController, onLoaded: (composition) {
             animationController..duration = composition.duration;
             startAnimation();

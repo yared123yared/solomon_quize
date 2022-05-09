@@ -1,15 +1,15 @@
 import 'package:flutterquiz/features/wallet/models/payoutMethod.dart';
 
-final String appName = "Solomon's Quest";
+final String appName = "The Christian App";
 final String packageName = "com.thechristianapp.quiz";
 
 //supporated language codes
 //Add language code in this list
 //visit this to find languageCode for your respective language
 //https://developers.google.com/admin-sdk/directory/v1/languages
-final List<String> supporatedLocales = ['en', 'hi', 'ur'];
+final List<String> supporatedLocales = ['en-GB', 'hi', 'ur'];
 //
-final String defaultLanguageCode = 'en';
+final String defaultLanguageCode = 'en-GB';
 
 //Enter 2 Letter ISO Code of country
 //It will be use for phone auth.

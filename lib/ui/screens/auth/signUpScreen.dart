@@ -14,6 +14,8 @@ import 'package:flutterquiz/utils/uiUtils.dart';
 import 'package:flutterquiz/utils/validators.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../widgets/registerBackGroundContainer.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
   @override
@@ -33,15 +35,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
       create: (_) => SignUpCubit(AuthRepository()),
       child: Builder(
           builder: (context) => Scaffold(
-                body: Stack(
-                  children: [
-                    PageBackgroundGradientContainer(),
-                    SingleChildScrollView(
-                      child: form(),
-                    ),
-                  ],
+            body: Stack(
+              children: [
+               // PageBackgroundGradientContainer(),
+                registerBackGroundContainer(),
+                SingleChildScrollView(
+                  child: form(),
                 ),
-              )),
+              ],
+            ),
+          )),
     );
   }
 
@@ -49,7 +52,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Form(
       key: _formKey,
       child: Padding(
-        padding: EdgeInsetsDirectional.only(start: MediaQuery.of(context).size.width * .08, end: MediaQuery.of(context).size.width * .08),
+        padding: EdgeInsetsDirectional.only(
+            start: MediaQuery.of(context).size.width * .08,
+            end: MediaQuery.of(context).size.width * .08),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -60,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * .05,
             ),
-            showTopImage(),
+           // showTopImage(),
             SizedBox(
               height: MediaQuery.of(context).size.height * .05,
             ),
@@ -88,14 +93,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget signUpText() {
     return Text(
       AppLocalization.of(context)!.getTranslatedValues("signUpLbl")!,
-      style: TextStyle(color: Theme.of(context).canvasColor, fontSize: 22, fontWeight: FontWeight.bold),
+      style: TextStyle(
+          color: Theme.of(context).canvasColor,
+          fontSize: 22,
+          fontWeight: FontWeight.bold),
     );
   }
 
   Widget showTopImage() {
     return Container(
       transformAlignment: Alignment.topCenter,
-      child: Lottie.asset("assets/animations/log.json", height: MediaQuery.of(context).size.height * .25, width: MediaQuery.of(context).size.width * 3),
+      child: Lottie.asset("assets/animations/log.json",
+          height: MediaQuery.of(context).size.height * .25,
+          width: MediaQuery.of(context).size.width * 3),
     );
   }
 
@@ -103,13 +113,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return TextFormField(
       controller: edtEmail,
       keyboardType: TextInputType.emailAddress,
-      validator: (val) => Validators.validateEmail(val!, AppLocalization.of(context)!.getTranslatedValues('emailRequiredMsg')!, AppLocalization.of(context)!.getTranslatedValues('VALID_EMAIL')),
+      validator: (val) => Validators.validateEmail(
+          val!,
+          AppLocalization.of(context)!.getTranslatedValues('emailRequiredMsg')!,
+          AppLocalization.of(context)!.getTranslatedValues('VALID_EMAIL')),
       style: TextStyle(color: Theme.of(context).colorScheme.secondary),
       decoration: InputDecoration(
         fillColor: Theme.of(context).backgroundColor,
         filled: true,
         border: InputBorder.none,
-        hintText: AppLocalization.of(context)!.getTranslatedValues('emailLbl')! + "*",
+        hintText:
+        AppLocalization.of(context)!.getTranslatedValues('emailLbl')! + "*",
         contentPadding: EdgeInsets.all(15),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -133,13 +147,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
       style: TextStyle(color: Theme.of(context).colorScheme.secondary),
       obscureText: _obscureText,
       obscuringCharacter: "*",
-      validator: (val) => val!.isEmpty ? '${AppLocalization.of(context)!.getTranslatedValues('pwdLengthMsg')}' : null,
+      validator: (val) => Validators.validatePassword(
+          val!,
+          AppLocalization.of(context)!
+              .getTranslatedValues('passwordRequiredMsg')!,
+          AppLocalization.of(context)!.getTranslatedValues('validPassword')),
       decoration: InputDecoration(
         fillColor: Theme.of(context).backgroundColor,
         filled: true,
         border: InputBorder.none,
         contentPadding: EdgeInsets.all(10),
-        hintText: AppLocalization.of(context)!.getTranslatedValues('pwdLbl')! + "*",
+        hintText:
+        AppLocalization.of(context)!.getTranslatedValues('pwdLbl')! + "*",
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
           borderSide: new BorderSide(
@@ -173,13 +192,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
       style: TextStyle(color: Theme.of(context).colorScheme.secondary),
       obscureText: _obscureTextCn,
       obscuringCharacter: "*",
-      validator: (val) => val != edtPwd.text ? '${AppLocalization.of(context)!.getTranslatedValues('cnPwdNotMatchMsg')}' : null,
+      validator: (val) => val != edtPwd.text
+          ? '${AppLocalization.of(context)!.getTranslatedValues('cnPwdNotMatchMsg')}'
+          : null,
       decoration: InputDecoration(
         fillColor: Theme.of(context).backgroundColor,
         filled: true,
         border: InputBorder.none,
         contentPadding: EdgeInsets.all(15),
-        hintText: AppLocalization.of(context)!.getTranslatedValues('cnPwdLbl')! + "*",
+        hintText:
+        AppLocalization.of(context)!.getTranslatedValues('cnPwdLbl')! + "*",
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
           borderSide: new BorderSide(
@@ -212,10 +234,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          AppLocalization.of(context)!.getTranslatedValues('alreadyAccountLbl')!,
+          AppLocalization.of(context)!
+              .getTranslatedValues('alreadyAccountLbl')!,
           style: TextStyle(
             fontSize: 12,
-            color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
+            color: Theme.of(context).colorScheme.secondary.withOpacity(1.0),
           ),
         ),
         SizedBox(width: 2),
@@ -247,32 +270,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
               listener: (context, state) async {
                 if (state is SignUpSuccess) {
                   //on signup success navigate user to sign in screen
-                  UiUtils.setSnackbar("${AppLocalization.of(context)!.getTranslatedValues('emailVerify')} ${edtEmail.text.trim()}", context, false);
+                  UiUtils.setSnackbar(
+                      "${AppLocalization.of(context)!.getTranslatedValues('emailVerify')} ${edtEmail.text.trim()}",
+                      context,
+                      false);
                   setState(() {
                     Navigator.pop(context);
                   });
                 } else if (state is SignUpFailure) {
                   //show error message
-                  UiUtils.setSnackbar(AppLocalization.of(context)!.getTranslatedValues(convertErrorCodeToLanguageKey(state.errorMessage))!, context, false);
+                  UiUtils.setSnackbar(
+                      AppLocalization.of(context)!.getTranslatedValues(
+                          convertErrorCodeToLanguageKey(state.errorMessage))!,
+                      context,
+                      false);
                 }
               },
               builder: (context, state) {
                 return CupertinoButton(
                   child: state is SignUpProgress
                       ? Center(
-                          child: CircularProgressContainer(
-                          heightAndWidth: 40,
-                          useWhiteLoader: true,
-                        ))
+                      child: CircularProgressContainer(
+                        heightAndWidth: 40,
+                        useWhiteLoader: true,
+                      ))
                       : Text(
-                          AppLocalization.of(context)!.getTranslatedValues('signUpLbl')!,
-                          style: TextStyle(color: Theme.of(context).backgroundColor),
-                        ),
+                    AppLocalization.of(context)!
+                        .getTranslatedValues('signUpLbl')!,
+                    style: TextStyle(
+                        color: Theme.of(context).backgroundColor),
+                  ),
                   color: Theme.of(context).primaryColor,
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       //calling signup user
-                      context.read<SignUpCubit>().signUpUser(AuthProvider.email, edtEmail.text.trim(), edtPwd.text.trim());
+                      context.read<SignUpCubit>().signUpUser(AuthProvider.email,
+                          edtEmail.text.trim(), edtPwd.text.trim());
                       resetForm();
                     }
                   },

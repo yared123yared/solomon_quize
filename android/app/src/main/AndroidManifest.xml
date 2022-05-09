@@ -10,7 +10,7 @@
     
 
    <application
-        android:label="Solomon's Quest"
+        android:label="The Christian App"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true"
         

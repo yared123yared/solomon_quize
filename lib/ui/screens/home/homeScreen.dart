@@ -538,11 +538,11 @@ class _HomeScreenState extends State<HomeScreen>
   void _onQuizTypeContainerTap(int quizTypeIndex) {
     if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.dailyQuiz) {
       if (context.read<SystemConfigCubit>().getIsDailyQuizAvailable() == "1") {
-       /* Navigator.of(context).pushNamed(Routes.quiz, arguments: {
+        Navigator.of(context).pushNamed(Routes.quiz, arguments: {
           "quizType": QuizTypes.dailyQuiz,
           "numberOfPlayer": 1,
           "quizName": "Daily Quiz"
-        });*/
+        });
       } else {
         UiUtils.setSnackbar(
             AppLocalization.of(context)!
@@ -551,11 +551,11 @@ class _HomeScreenState extends State<HomeScreen>
             false);
       }
     } else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.quizZone) {
-     /* Navigator.of(context).pushNamed(Routes.category,
-          arguments: {"quizType": QuizTypes.quizZone});*/
+      Navigator.of(context).pushNamed(Routes.category,
+          arguments: {"quizType": QuizTypes.quizZone});
     } else if (_quizTypes[quizTypeIndex].quizTypeEnum ==
         QuizTypes.selfChallenge) {
-      //Navigator.of(context).pushNamed(Routes.selfChallenge);
+      Navigator.of(context).pushNamed(Routes.selfChallenge);
     } //
     else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.battle) {
       //
@@ -572,11 +572,11 @@ class _HomeScreenState extends State<HomeScreen>
       );
     } else if (_quizTypes[quizTypeIndex].quizTypeEnum ==
         QuizTypes.trueAndFalse) {
-    /*  Navigator.of(context).pushNamed(Routes.quiz, arguments: {
+      Navigator.of(context).pushNamed(Routes.quiz, arguments: {
         "quizType": QuizTypes.trueAndFalse,
         "numberOfPlayer": 1,
         "quizName": "True & False"
-      });*/
+      });
     }
     /*else if (_quizTypes[quizTypeIndex].quizTypeEnum ==
         QuizTypes.funAndLearn) {
@@ -601,6 +601,7 @@ class _HomeScreenState extends State<HomeScreen>
     } else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.contest) {
       if (context.read<SystemConfigCubit>().getIsContestAvailable() == "1") {
        // Navigator.of(context).pushNamed(Routes.contest);
+        Navigator.of(context).pushNamed(Routes.verse);
       } else {
         UiUtils.setSnackbar(
             AppLocalization.of(context)!
@@ -610,17 +611,17 @@ class _HomeScreenState extends State<HomeScreen>
       }
     } else if (_quizTypes[quizTypeIndex].quizTypeEnum ==
         QuizTypes.guessTheWord) {
-    /*  Navigator.of(context).pushNamed(Routes.category,
-          arguments: {"quizType": QuizTypes.guessTheWord});*/
+      Navigator.of(context).pushNamed(Routes.category,
+          arguments: {"quizType": QuizTypes.guessTheWord});
     } else if (_quizTypes[quizTypeIndex].quizTypeEnum ==
         QuizTypes.audioQuestions) {
-     /* Navigator.of(context).pushNamed(Routes.category,
-          arguments: {"quizType": QuizTypes.audioQuestions});*/
-    } /*else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.exam) {
+      Navigator.of(context).pushNamed(Routes.category,
+          arguments: {"quizType": QuizTypes.audioQuestions});
+    } else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.exam) {
       //update exam status to exam initial
       context.read<ExamCubit>().updateState(ExamInitial());
       Navigator.of(context).pushNamed(Routes.exams);
-    } */else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.tournament) {
+    } else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.tournament) {
       Navigator.of(context).pushNamed(Routes.tournamentDetails);
     }
   }
@@ -739,9 +740,9 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildSelfChallenge(double statusBarPadding) {
     return GestureDetector(
       onTap: () {
-        // context.read<QuizCategoryCubit>().updateState(QuizCategoryInitial());
-        // context.read<SubCategoryCubit>().updateState(SubCategoryInitial());
-        // Navigator.of(context).pushNamed(Routes.selfChallenge);
+         context.read<QuizCategoryCubit>().updateState(QuizCategoryInitial());
+         context.read<SubCategoryCubit>().updateState(SubCategoryInitial());
+         Navigator.of(context).pushNamed(Routes.selfChallenge);
       },
       child: Align(
         alignment: Alignment.topCenter,
@@ -991,7 +992,7 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               child: IconButton(
                 onPressed: () {
-                  //Navigator.of(context).pushNamed(Routes.leaderBoard);
+                  Navigator.of(context).pushNamed(Routes.leaderBoard);
                 },
                 icon: SvgPicture.asset(
                   UiUtils.getImagePath("leaderboard_dark.svg"),

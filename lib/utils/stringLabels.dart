@@ -45,6 +45,9 @@ String cnPwdNotMatchMsg = "cnPwdNotMatchMsg";
 String cnPwdLbl = "cnPwdLbl";
 String alreadyAccountLbl = "alreadyAccountLbl";
 String emailVerify = "emailVerify";
+//update Sign-up Screen
+String passwordRequiredMsg = "passwordRequiredMsg";
+String validPassword = "validPassword";
 
 //battle CreateRoomDialog widget
 String liveChatLbl = "liveChatLbl";
