@@ -17,6 +17,8 @@ import 'package:flutterquiz/ui/screens/battle/widgets/roomDialog.dart';
 import 'package:flutterquiz/ui/screens/home/widgets/appUnderMaintenanceDialog.dart';
 import 'package:flutterquiz/ui/screens/home/widgets/menuBottomSheetContainer.dart';
 import 'package:flutterquiz/ui/screens/profile/widgets/editProfileFieldBottomSheetContainer.dart';
+import 'package:flutterquiz/ui/widgets/homeBackgroundContainer.dart';
+import 'package:flutterquiz/ui/widgets/registerBackGroundContainer.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -328,7 +330,7 @@ class _HomeScreenState extends State<HomeScreen>
         summaryText: msg,
         htmlFormatSummaryText: true);
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'com.wrteam.flutterquiz', //channel id
+      'com.thechristianapp.quiz', //channel id
       'flutterquiz', //channel name
       channelDescription: 'flutterquiz',
       largeIcon: FilePathAndroidBitmap(largeIconPath),
@@ -353,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen>
   Future<void> generateSimpleNotification(
       String title, String body, String payloads) async {
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-        'com.wrteam.flutterquiz', //channel id
+        'com.thechristianapp.quiz', //channel id
         'flutterquiz', //channel name
         channelDescription: 'flutterquiz',
         importance: Importance.max,
@@ -1245,7 +1247,8 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildHomeScreen(List<Widget> children) {
     return Stack(
       children: [
-        PageBackgroundGradientContainer(),
+       // PageBackgroundGradientContainer(),
+        homeBackgroundContainer(),
         ...children,
       ],
     );

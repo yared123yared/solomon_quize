@@ -27,19 +27,12 @@ class _VerseOfDayState extends State<VerseOfDay> {
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {Navigator.pop(context);},
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
             ),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.menu,
-              ),
-            ),
-          ],
+          actions: [],
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
@@ -55,7 +48,7 @@ class _VerseOfDayState extends State<VerseOfDay> {
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 8.w,
+             // horizontal: 8.w,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -123,7 +116,7 @@ class _VerseOfDayState extends State<VerseOfDay> {
                                         ),
                                         Padding(
                                           padding: EdgeInsets.symmetric(
-                                            horizontal: 6.w,
+                                            //horizontal: 6.w,
                                           ),
                                           child: Text(
                                             items[index]['desc'],
@@ -176,7 +169,7 @@ class _VerseOfDayState extends State<VerseOfDay> {
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         vertical: 2.h,
-                        horizontal: 20.w,
+                        //horizontal: 20.w,
                       ),
                       child: currentIndex == 4
                           ? const Text(

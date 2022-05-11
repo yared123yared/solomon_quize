@@ -39,7 +39,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
               height: MediaQuery.of(context).size.height * (0.025),
             ),
 
-            context.read<SystemConfigCubit>().isPaymentRequestEnable()
+         /*   context.read<SystemConfigCubit>().isPaymentRequestEnable()
                 ? MenuTile(
                     isSvgIcon: true,
                     onTap: () {
@@ -49,7 +49,7 @@ class MenuBottomSheetContainer extends StatelessWidget {
                     title: walletKey,
                     leadingIcon: "wallet.png",
                   )
-                : SizedBox(),
+                : SizedBox(),*/
 
         /*    MenuTile(
               isSvgIcon: true,
@@ -128,18 +128,18 @@ class MenuBottomSheetContainer extends StatelessWidget {
               leadingIcon: "statistics.svg", //theme icon
             ),*/
 
-            MenuTile(
+        /*    MenuTile(
               isSvgIcon: true,
               onTap: () {
-              /*  Navigator.of(context).pop();
+              *//*  Navigator.of(context).pop();
 
-                Navigator.of(context).pushNamed(Routes.notification);*/
+                Navigator.of(context).pushNamed(Routes.notification);*//*
                 //
               },
               title: "notificationLbl",
               leadingIcon: "notification.png", //theme icon
             ),
-
+*/
             MenuTile(
               isSvgIcon: true,
               onTap: () {

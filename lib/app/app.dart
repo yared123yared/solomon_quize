@@ -46,7 +46,7 @@ import 'package:flutterquiz/utils/uiUtils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hive_flutter/hive_flutter.dart';
-
+import 'package:sizer/sizer.dart';
 
 Future<Widget> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -173,30 +173,30 @@ class MyApp extends StatelessWidget {
           final currentLanguage =
               context.watch<AppLocalizationCubit>().state.language;
 
-          return MaterialApp(
-            builder: (context, widget) {
-
-              return ScrollConfiguration(
-                  behavior: GlobalScrollBehavior(), child: widget!);
-
-            },
-            locale: currentLanguage,
-            theme: appThemeData[currentTheme]!.copyWith(
-                textTheme:
-                    GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)),
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: [
-              AppLocalization.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: supporatedLocales.map((languageCode) {
-              return UiUtils.getLocaleFromLanguageCode(languageCode);
-            }).toList(),
-            initialRoute: Routes.splash,
-            onGenerateRoute: Routes.onGenerateRouted,
-          );
+          return Sizer(builder: (context, orientation, deviceType) {
+            return MaterialApp(
+              builder: (context, widget) {
+                return ScrollConfiguration(
+                    behavior: GlobalScrollBehavior(), child: widget!);
+              },
+              locale: currentLanguage,
+              theme: appThemeData[currentTheme]!.copyWith(
+                  textTheme: GoogleFonts.poppinsTextTheme(
+                      Theme.of(context).textTheme)),
+              debugShowCheckedModeBanner: false,
+              localizationsDelegates: [
+                AppLocalization.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: supporatedLocales.map((languageCode) {
+                return UiUtils.getLocaleFromLanguageCode(languageCode);
+              }).toList(),
+              initialRoute: Routes.splash,
+              onGenerateRoute: Routes.onGenerateRouted,
+            );
+          });
         },
       ),
     );
