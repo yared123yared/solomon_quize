@@ -18,6 +18,8 @@ import 'package:flutterquiz/utils/errorMessageKeys.dart';
 import 'package:flutterquiz/utils/stringLabels.dart';
 import 'package:flutterquiz/utils/uiUtils.dart';
 
+import '../widgets/homeBackgroundContainer.dart';
+
 class LeaderBoardScreen extends StatefulWidget {
   @override
   _LeaderBoardScreen createState() => _LeaderBoardScreen();
@@ -133,7 +135,8 @@ class _LeaderBoardScreen extends State<LeaderBoardScreen> {
 
   Widget topDesign() {
     return Stack(children: [
-      PageBackgroundGradientContainer(),
+      homeBackgroundContainer(),
+      //PageBackgroundGradientContainer(),
       DefaultTabController(
           length: 3,
           child: Column(children: [

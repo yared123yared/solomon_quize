@@ -450,7 +450,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     if (currentMenu == 1) {
       if (containerNumber == 1) {
-        // _onQuizTypeContainerTap(0);
+         _onQuizTypeContainerTap(0);
       } else if (containerNumber == 2) {
         _onQuizTypeContainerTap(1);
       } else if (containerNumber == 3) {
@@ -540,11 +540,12 @@ class _HomeScreenState extends State<HomeScreen>
   void _onQuizTypeContainerTap(int quizTypeIndex) {
     if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.dailyQuiz) {
       if (context.read<SystemConfigCubit>().getIsDailyQuizAvailable() == "1") {
-        Navigator.of(context).pushNamed(Routes.quiz, arguments: {
+        Navigator.of(context).pushNamed(Routes.learn);
+       /* Navigator.of(context).pushNamed(Routes.quiz, arguments: {
           "quizType": QuizTypes.dailyQuiz,
           "numberOfPlayer": 1,
           "quizName": "Daily Quiz"
-        });
+        });*/
       } else {
         UiUtils.setSnackbar(
             AppLocalization.of(context)!

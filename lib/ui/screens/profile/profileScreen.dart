@@ -29,6 +29,8 @@ import 'package:flutterquiz/utils/stringLabels.dart';
 import 'package:flutterquiz/utils/uiUtils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widgets/homeBackgroundContainer.dart';
+
 class ProfileScreen extends StatelessWidget {
   static Route<dynamic> route(RouteSettings routeSettings) {
     return CupertinoPageRoute(
@@ -529,7 +531,8 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          PageBackgroundGradientContainer(),
+          homeBackgroundContainer(),
+         // PageBackgroundGradientContainer(),
           SingleChildScrollView(
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).padding.top,

@@ -43,7 +43,7 @@ final List<QuizType> quizTypes = [
       image: "audio_questions.svg",
       active: true,
       description: desAudioQuestionsKey),
-  QuizType(
-      title: examKey, image: "exam.svg", active: true, description: desExamKey),
+ /* QuizType(
+      title: examKey, image: "exam.svg", active: true, description: desExamKey),*/
   //QuizType(title: tournamentKey, image: "audio_questions.svg", active: true, description: desTournamentKey),
 ];

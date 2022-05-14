@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class VerseOfDay extends StatefulWidget {
-  const VerseOfDay({Key? key}) : super(key: key);
+class Learning extends StatefulWidget {
+  const Learning({Key? key}) : super(key: key);
 
   @override
-  State<VerseOfDay> createState() => _VerseOfDayState();
+  State<Learning> createState() => _LearningState();
 }
 
-class _VerseOfDayState extends State<VerseOfDay> {
+class _LearningState extends State<Learning> {
   int currentIndex = 0;
   final PageController _controller = PageController(initialPage: 0);
 
@@ -42,13 +42,13 @@ class _VerseOfDayState extends State<VerseOfDay> {
             image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage(
-                'assets/images/background1.jpeg',
+                'assets/images/bghome.png',
               ),
             ),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-             // horizontal: 8.w,
+              // horizontal: 8.w,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -75,11 +75,11 @@ class _VerseOfDayState extends State<VerseOfDay> {
                           height: 1.h,
                         ),
                         const Text(
-                          'Verse Of The day',
+                          'Training and Practice',
                           style: TextStyle(
                             color: Color(0xFFd9940d),
                             fontWeight: FontWeight.bold,
-                            fontSize: 35,
+                            fontSize: 25,
                           ),
                         ),
                         SizedBox(
@@ -87,7 +87,7 @@ class _VerseOfDayState extends State<VerseOfDay> {
                         ),
                         FutureBuilder(
                           future: DefaultAssetBundle.of(context)
-                              .loadString('assets/files/verse_data.json'),
+                              .loadString('assets/files/learn.json'),
                           builder: (context, snapshot) {
                             var items = json.decode(snapshot.data.toString());
                             if (snapshot.hasData) {
@@ -104,9 +104,11 @@ class _VerseOfDayState extends State<VerseOfDay> {
                                     return Column(
                                       children: [
                                         Text(
-                                          items[index]['chapter'],
+                                          items[index]['question'],
+                                          textAlign: TextAlign.center,
                                           style: const TextStyle(
-                                            fontSize: 25,
+                                            fontSize: 15,
+
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white,
                                           ),
@@ -115,7 +117,7 @@ class _VerseOfDayState extends State<VerseOfDay> {
                                           height: 1.h,
                                         ),
                                         Text(
-                                          items[index]['title'],
+                                          items[index]['tag'],
                                           style: const TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
@@ -130,11 +132,11 @@ class _VerseOfDayState extends State<VerseOfDay> {
                                             //horizontal: 6.w,
                                           ),
                                           child: Text(
-                                            items[index]['desc'],
+                                            items[index]['answer'],
                                             maxLines: 7,
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 15,
                                               height: 1.3,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
@@ -184,21 +186,21 @@ class _VerseOfDayState extends State<VerseOfDay> {
                       ),
                       child: currentIndex == 7
                           ? const Text(
-                              'Done',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
+                        'Done',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
                           : const Text(
-                              'Next',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                        'Next',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ),

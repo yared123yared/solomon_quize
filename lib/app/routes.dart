@@ -15,6 +15,7 @@ import 'package:flutterquiz/ui/screens/exam/examsScreen.dart';
 import 'package:flutterquiz/ui/screens/home/homeScreen.dart';
 import 'package:flutterquiz/ui/screens/introSliderScreen.dart';
 import 'package:flutterquiz/ui/screens/leaderBoardScreen.dart';
+import 'package:flutterquiz/ui/screens/learn/learning.dart';
 import 'package:flutterquiz/ui/screens/notificationScreen.dart';
 import 'package:flutterquiz/ui/screens/profile/profileScreen.dart';
 import 'package:flutterquiz/ui/screens/battle/battleRoomQuizScreen.dart';
@@ -85,6 +86,7 @@ class Routes {
 
   static const contest = "/contest";
   static const verse = "/verse";
+  static const learn = "/learn";
   static const contestLeaderboard = "/contestLeaderboard";
   static const funAndLearnTitle = "/funAndLearnTitle";
   static const funAndLearn = "funAndLearn";
@@ -122,6 +124,8 @@ class Routes {
         return CupertinoPageRoute(builder: (context) => SignUpScreen());
       case verse:
         return CupertinoPageRoute(builder: (context) => VerseOfDay());
+      case learn:
+        return CupertinoPageRoute(builder: (context) => Learning());
       case otpScreen:
         return OtpScreen.route(routeSettings);
       case subcategoryAndLevel:
