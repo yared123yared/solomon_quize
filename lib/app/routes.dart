@@ -50,6 +50,8 @@ import 'package:flutterquiz/ui/screens/tournament/tournamentScreen.dart';
 import 'package:flutterquiz/ui/screens/verse/verseOfDay.dart';
 import 'package:flutterquiz/ui/screens/wallet/walletScreen.dart';
 
+import '../ui/screens/datatree/select_screen.dart';
+
 class Routes {
   static const home = "/";
   static const login = "login";

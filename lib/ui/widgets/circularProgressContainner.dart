@@ -9,10 +9,10 @@ class CircularProgressContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: heightAndWidth ?? 75.0,
-      height: heightAndWidth ?? 75.0,
+      width: heightAndWidth ?? 250.0,
+      height: heightAndWidth ?? 250.0,
       child: Lottie.asset(
-        useWhiteLoader ? "assets/animations/whiteLoading.json" : "assets/animations/loading.json",
+        useWhiteLoader ? "assets/animations/init_load.json" : "assets/animations/init_load.json",
       ),
     );
   }

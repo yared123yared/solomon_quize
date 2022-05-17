@@ -56,20 +56,21 @@ class HomeScreen extends StatefulWidget {
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
+
   static Route<dynamic> route(RouteSettings routeSettings) {
     return CupertinoPageRoute(
         builder: (context) => MultiBlocProvider(
-          providers: [
-            BlocProvider<ReferAndEarnCubit>(
-              create: (_) => ReferAndEarnCubit(AuthRepository()),
-            ),
-            BlocProvider<UpdateUserDetailCubit>(
-              create: (context) =>
-                  UpdateUserDetailCubit(ProfileManagementRepository()),
-            ),
-          ],
-          child: HomeScreen(),
-        ));
+              providers: [
+                BlocProvider<ReferAndEarnCubit>(
+                  create: (_) => ReferAndEarnCubit(AuthRepository()),
+                ),
+                BlocProvider<UpdateUserDetailCubit>(
+                  create: (context) =>
+                      UpdateUserDetailCubit(ProfileManagementRepository()),
+                ),
+              ],
+              child: HomeScreen(),
+            ));
   }
 }
 
@@ -100,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen>
   int currentMenu = 1;
 
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
@@ -162,15 +163,15 @@ class _HomeScreenState extends State<HomeScreen>
 
   void _initLocalNotification() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
-    AndroidInitializationSettings('@mipmap/ic_launcher');
+        AndroidInitializationSettings('@mipmap/ic_launcher');
     final IOSInitializationSettings initializationSettingsIOS =
-    IOSInitializationSettings(onDidReceiveLocalNotification:
-        (int id, String? title, String? body, String? payLoad) {
+        IOSInitializationSettings(onDidReceiveLocalNotification:
+            (int id, String? title, String? body, String? payLoad) {
       print("For ios version <= 9 notification will be shown here");
     });
 
     final InitializationSettings initializationSettings =
-    InitializationSettings(
+        InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
     );
@@ -183,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (Platform.isIOS) {
       flutterLocalNotificationsPlugin
           .resolvePlatformSpecificImplementation<
-          IOSFlutterLocalNotificationsPlugin>()
+              IOSFlutterLocalNotificationsPlugin>()
           ?.requestPermissions();
     }
   }
@@ -194,15 +195,15 @@ class _HomeScreenState extends State<HomeScreen>
       quizTypeTopMargin = systemCubit.isSelfChallengeEnable() ? 0.425 : 0.29;
       if (systemCubit.getIsContestAvailable() == "0") {
         _quizTypes.removeWhere(
-                (element) => element.quizTypeEnum == QuizTypes.contest);
+            (element) => element.quizTypeEnum == QuizTypes.contest);
       }
       if (systemCubit.getIsDailyQuizAvailable() == "0") {
         _quizTypes.removeWhere(
-                (element) => element.quizTypeEnum == QuizTypes.dailyQuiz);
+            (element) => element.quizTypeEnum == QuizTypes.dailyQuiz);
       }
       if (!systemCubit.getIsAudioQuestionAvailable()) {
         _quizTypes.removeWhere(
-                (element) => element.quizTypeEnum == QuizTypes.audioQuestions);
+            (element) => element.quizTypeEnum == QuizTypes.audioQuestions);
       }
       /* if (systemCubit.getIsFunNLearnAvailable() == "0") {
         _quizTypes.removeWhere(
@@ -210,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen>
       }*/
       if (!systemCubit.getIsGuessTheWordAvailable()) {
         _quizTypes.removeWhere(
-                (element) => element.quizTypeEnum == QuizTypes.guessTheWord);
+            (element) => element.quizTypeEnum == QuizTypes.guessTheWord);
       }
       if (systemCubit.getIsExamAvailable() == "0") {
         _quizTypes
@@ -272,9 +273,9 @@ class _HomeScreenState extends State<HomeScreen>
       if (type == "payment_request") {
         Future.delayed(Duration.zero, () {
           context.read<UserDetailsCubit>().updateCoins(
-            addCoin: true,
-            coins: int.parse(data['coins'].toString()),
-          );
+                addCoin: true,
+                coins: int.parse(data['coins'].toString()),
+              );
         });
       }
 
@@ -337,7 +338,7 @@ class _HomeScreenState extends State<HomeScreen>
       styleInformation: bigPictureStyleInformation,
     );
     var platformChannelSpecifics =
-    NotificationDetails(android: androidPlatformChannelSpecifics);
+        NotificationDetails(android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin
         .show(0, title, msg, platformChannelSpecifics, payload: payloads);
   }
@@ -362,7 +363,7 @@ class _HomeScreenState extends State<HomeScreen>
         priority: Priority.high,
         ticker: 'ticker');
     const IOSNotificationDetails iosNotificationDetails =
-    IOSNotificationDetails();
+        IOSNotificationDetails();
 
     var platformChannelSpecifics = NotificationDetails(
         android: androidPlatformChannelSpecifics, iOS: iosNotificationDetails);
@@ -379,15 +380,15 @@ class _HomeScreenState extends State<HomeScreen>
         elevation: 5.0,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
-            )),
+          topLeft: Radius.circular(20.0),
+          topRight: Radius.circular(20.0),
+        )),
         context: context,
         builder: (context) {
           return EditProfileFieldBottomSheetContainer(
               canCloseBottomSheet: false,
               fieldTitle:
-              AppLocalization.of(context)!.getTranslatedValues("nameLbl")!,
+                  AppLocalization.of(context)!.getTranslatedValues("nameLbl")!,
               fieldValue: context.read<UserDetailsCubit>().getUserName(),
               numericKeyboardEnable: false,
               updateUserDetailCubit: updateUserDetailCubit);
@@ -450,7 +451,7 @@ class _HomeScreenState extends State<HomeScreen>
 
     if (currentMenu == 1) {
       if (containerNumber == 1) {
-         _onQuizTypeContainerTap(0);
+        _onQuizTypeContainerTap(0);
       } else if (containerNumber == 2) {
         _onQuizTypeContainerTap(1);
       } else if (containerNumber == 3) {
@@ -541,7 +542,7 @@ class _HomeScreenState extends State<HomeScreen>
     if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.dailyQuiz) {
       if (context.read<SystemConfigCubit>().getIsDailyQuizAvailable() == "1") {
         Navigator.of(context).pushNamed(Routes.learn);
-       /* Navigator.of(context).pushNamed(Routes.quiz, arguments: {
+        /* Navigator.of(context).pushNamed(Routes.quiz, arguments: {
           "quizType": QuizTypes.dailyQuiz,
           "numberOfPlayer": 1,
           "quizName": "Daily Quiz"
@@ -596,14 +597,14 @@ class _HomeScreenState extends State<HomeScreen>
       showDialog(
           context: context,
           builder: (context) => MultiBlocProvider(providers: [
-            BlocProvider<UpdateScoreAndCoinsCubit>(
-                create: (_) => UpdateScoreAndCoinsCubit(
-                    ProfileManagementRepository())),
-          ], child: RoomDialog(quizType: QuizTypes.groupPlay)));
+                BlocProvider<UpdateScoreAndCoinsCubit>(
+                    create: (_) => UpdateScoreAndCoinsCubit(
+                        ProfileManagementRepository())),
+              ], child: RoomDialog(quizType: QuizTypes.groupPlay)));
       //
     } else if (_quizTypes[quizTypeIndex].quizTypeEnum == QuizTypes.contest) {
       if (context.read<SystemConfigCubit>().getIsContestAvailable() == "1") {
-       // Navigator.of(context).pushNamed(Routes.contest);
+        // Navigator.of(context).pushNamed(Routes.contest);
         Navigator.of(context).pushNamed(Routes.verse);
       } else {
         UiUtils.setSnackbar(
@@ -691,7 +692,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 ),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     UserAchievementContainer(
                                         title: AppLocalization.of(context)!
@@ -743,9 +744,9 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildSelfChallenge(double statusBarPadding) {
     return GestureDetector(
       onTap: () {
-         context.read<QuizCategoryCubit>().updateState(QuizCategoryInitial());
-         context.read<SubCategoryCubit>().updateState(SubCategoryInitial());
-         Navigator.of(context).pushNamed(Routes.selfChallenge);
+        context.read<QuizCategoryCubit>().updateState(QuizCategoryInitial());
+        context.read<SubCategoryCubit>().updateState(SubCategoryInitial());
+        Navigator.of(context).pushNamed(Routes.selfChallenge);
       },
       child: Align(
         alignment: Alignment.topCenter,
@@ -872,9 +873,9 @@ class _HomeScreenState extends State<HomeScreen>
           //change static number to length of menu
           if (quizTypeIndex == 6 || quizTypeIndex == 7) {
             double previousTopQuizTypeHeight =
-            maxHeightQuizTypeIndexes.contains(quizTypeIndex - 2)
-                ? UiUtils.quizTypeMaxHeightPercentage
-                : UiUtils.quizTypeMinHeightPercentage;
+                maxHeightQuizTypeIndexes.contains(quizTypeIndex - 2)
+                    ? UiUtils.quizTypeMaxHeightPercentage
+                    : UiUtils.quizTypeMinHeightPercentage;
             endMarginPercentage = quizTypeTopMargin +
                 quizTypeBetweenVerticalSpacing +
                 previousTopQuizTypeHeight;
@@ -882,7 +883,7 @@ class _HomeScreenState extends State<HomeScreen>
 
           double topPositionPercentage = firstAnimation
               .drive<double>(
-              Tween(begin: topMarginPercentage, end: endMarginPercentage))
+                  Tween(begin: topMarginPercentage, end: endMarginPercentage))
               .value;
 
           return Positioned(
@@ -917,35 +918,35 @@ class _HomeScreenState extends State<HomeScreen>
           return AnimatedBuilder(
             builder: (context, child) {
               double firstEndMarginPercentage =
-              _getTopMarginForQuizTypeContainer(quizTypeIndex - 4);
+                  _getTopMarginForQuizTypeContainer(quizTypeIndex - 4);
               double topPositionPercentage = 0.0;
 
               topPositionPercentage = firstAnimation
                   .drive<double>(Tween(
-                  begin: topMarginPercentage,
-                  end: firstEndMarginPercentage))
+                      begin: topMarginPercentage,
+                      end: firstEndMarginPercentage))
                   .value;
 
               double previousTopQuizTypeHeight = 0;
               if (quizTypeIndex == 10 || quizTypeIndex == 11) {
                 previousTopQuizTypeHeight =
-                maxHeightQuizTypeIndexes.contains(quizTypeIndex - 2)
-                    ? UiUtils.quizTypeMaxHeightPercentage
-                    : UiUtils.quizTypeMinHeightPercentage;
+                    maxHeightQuizTypeIndexes.contains(quizTypeIndex - 2)
+                        ? UiUtils.quizTypeMaxHeightPercentage
+                        : UiUtils.quizTypeMinHeightPercentage;
                 previousTopQuizTypeHeight =
                     quizTypeBetweenVerticalSpacing + previousTopQuizTypeHeight;
               }
               topPositionPercentage = topPositionPercentage -
                   (firstEndMarginPercentage -
-                      quizTypeTopMargin -
-                      previousTopQuizTypeHeight) *
+                          quizTypeTopMargin -
+                          previousTopQuizTypeHeight) *
                       (secondAnimation
                           .drive<double>(Tween(begin: 0.0, end: 1.0))
                           .value);
 
               return Positioned(
                 top: (MediaQuery.of(context).size.height *
-                    topPositionPercentage) +
+                        topPositionPercentage) +
                     statusBarPadding,
                 left: isLeft ? quizTypeHorizontalMargin : null,
                 right: isLeft ? null : quizTypeHorizontalMargin,
@@ -1023,9 +1024,9 @@ class _HomeScreenState extends State<HomeScreen>
                       elevation: 5.0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                          )),
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0),
+                      )),
                       context: context,
                       builder: (context) {
                         return MenuBottomSheetContainer();
@@ -1065,14 +1066,14 @@ class _HomeScreenState extends State<HomeScreen>
                       quizTypeHorizontalMarginPercentage);
 
           double thirdTapStartDy = MediaQuery.of(context).size.height *
-              (quizTypeBetweenVerticalSpacing +
-                  quizTypeTopMargin +
-                  UiUtils.quizTypeMaxHeightPercentage) +
+                  (quizTypeBetweenVerticalSpacing +
+                      quizTypeTopMargin +
+                      UiUtils.quizTypeMaxHeightPercentage) +
               statusBarPadding;
           double fourthTapStartDy = MediaQuery.of(context).size.height *
-              (quizTypeBetweenVerticalSpacing +
-                  quizTypeTopMargin +
-                  UiUtils.quizTypeMinHeightPercentage) +
+                  (quizTypeBetweenVerticalSpacing +
+                      quizTypeTopMargin +
+                      UiUtils.quizTypeMinHeightPercentage) +
               statusBarPadding;
 
           double fifthTapStartDy = thirdTapStartDy +
@@ -1239,7 +1240,7 @@ class _HomeScreenState extends State<HomeScreen>
           color: Colors.transparent,
           width: MediaQuery.of(context).size.width,
           height:
-          MediaQuery.of(context).size.height * (1.0 - quizTypeTopMargin),
+              MediaQuery.of(context).size.height * (1.0 - quizTypeTopMargin),
         ),
       ),
     );
@@ -1248,7 +1249,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildHomeScreen(List<Widget> children) {
     return Stack(
       children: [
-       // PageBackgroundGradientContainer(),
+        // PageBackgroundGradientContainer(),
         homeBackgroundContainer(),
         ...children,
       ],

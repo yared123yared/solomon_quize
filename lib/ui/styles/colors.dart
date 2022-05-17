@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 final Color primaryColor = Color(0xff1C658C);
-final Color secondaryColor = Color(0xff4C3F91); //work as secondary color
+final Color secondaryColor = Color(0xff398AB9); //work as secondary color
 final Color backgroundColor = Colors.white;
 final Color pageBackgroundColor = Color(0xFF398AB9);
 final Color canvasColor = Color(0xffFFFFFF);

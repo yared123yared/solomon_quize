@@ -72,6 +72,8 @@ dependencies:
   sms_autofill: ^2.2.0
   url_launcher: ^6.0.12
   wakelock: ^0.5.6
+  validators: ^1.0.0+1
+  jaguar_serializer: ^2.2.6
   webview_flutter: ^3.0.0
   country_code_picker: ^2.0.2
   flutter_windowmanager: ^0.2.0

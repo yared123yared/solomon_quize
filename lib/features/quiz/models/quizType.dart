@@ -48,8 +48,8 @@ QuizTypes getQuizTypeEnumFromTitle(String? title) {
     return QuizTypes.mathMania;
   } else if (title == audioQuestionsKey) {
     return QuizTypes.audioQuestions;
-  /*} else if (title == examKey) {
-    return QuizTypes.exam;*/
+  } else if (title == examKey) {
+    return QuizTypes.exam;
   } else if (title == tournamentKey) {
     return QuizTypes.tournament;
   }

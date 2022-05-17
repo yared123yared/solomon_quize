@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'data_model.dart';
+import 'package:http/http.dart' as http;
 
 class VerseOfDay extends StatefulWidget {
   const VerseOfDay({Key? key}) : super(key: key);
@@ -13,6 +15,30 @@ class _VerseOfDayState extends State<VerseOfDay> {
   int currentIndex = 0;
   final PageController _controller = PageController(initialPage: 0);
 
+  final List<DataModel> _dataModel = <DataModel>[];
+
+  Future<List<DataModel>> fetchData() async {
+    var url = 'http://thechristianapp.com/feed/verse_data.json';
+    var response = await http.get(
+      Uri.parse(url),
+    );
+    var datas = <DataModel>[];
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      for (var datajson in data) {
+        datas.add(DataModel.fromJson(datajson));
+      }
+    }
+    return datas;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData().then((value) {
+      _dataModel.addAll(value);
+    });
+  }
 
   @override
   void dispose() {
@@ -22,17 +48,29 @@ class _VerseOfDayState extends State<VerseOfDay> {
 
   @override
   Widget build(BuildContext context) {
+    // fetchData().then((value) {
+    //   _dataModel.addAll(value);
+    // });
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {Navigator.pop(context);},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: const Icon(
               Icons.arrow_back_ios_new_outlined,
             ),
           ),
-          actions: [],
+          actions: [
+            /* IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.menu,
+              ),
+            ),*/
+          ],
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
@@ -42,13 +80,13 @@ class _VerseOfDayState extends State<VerseOfDay> {
             image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage(
-                'assets/images/background1.jpeg',
+                'assets/images/bghome.png',
               ),
             ),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-             // horizontal: 8.w,
+              horizontal: 8.w,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -74,27 +112,14 @@ class _VerseOfDayState extends State<VerseOfDay> {
                         SizedBox(
                           height: 1.h,
                         ),
-                        const Text(
-                          'Verse Of The day',
-                          style: TextStyle(
-                            color: Color(0xFFd9940d),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 35,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
                         FutureBuilder(
-                          future: DefaultAssetBundle.of(context)
-                              .loadString('assets/files/verse_data.json'),
+                          future: fetchData(),
                           builder: (context, snapshot) {
-                            var items = json.decode(snapshot.data.toString());
                             if (snapshot.hasData) {
                               return Expanded(
                                 child: PageView.builder(
                                   controller: _controller,
-                                  itemCount: items.length,
+                                  itemCount: _dataModel.length,
                                   onPageChanged: (int value) {
                                     setState(() {
                                       currentIndex = value;
@@ -104,7 +129,19 @@ class _VerseOfDayState extends State<VerseOfDay> {
                                     return Column(
                                       children: [
                                         Text(
-                                          items[index]['chapter'],
+                                          '${_dataModel[index].chapter}',
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            color: Color(0xFFd9940d),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 30,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
+                                        Text(
+                                          '${_dataModel[index].title}',
                                           style: const TextStyle(
                                             fontSize: 25,
                                             fontWeight: FontWeight.bold,
@@ -114,24 +151,13 @@ class _VerseOfDayState extends State<VerseOfDay> {
                                         SizedBox(
                                           height: 1.h,
                                         ),
-                                        Text(
-                                          items[index]['title'],
-                                          style: const TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.yellow,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
                                         Padding(
                                           padding: EdgeInsets.symmetric(
-                                            //horizontal: 6.w,
+                                            horizontal: 6.w,
                                           ),
                                           child: Text(
-                                            items[index]['desc'],
-                                            maxLines: 7,
+                                            '${_dataModel[index].desc}',
+                                            maxLines: 5,
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
                                               fontSize: 18,
@@ -179,8 +205,8 @@ class _VerseOfDayState extends State<VerseOfDay> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        vertical: 1.h,
-                        horizontal: 10.w,
+                        vertical: 2.h,
+                        horizontal: 20.w,
                       ),
                       child: currentIndex == 7
                           ? const Text(

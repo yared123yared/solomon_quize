@@ -120,11 +120,11 @@ class _LeaderBoardScreen extends State<LeaderBoardScreen> {
                 ),
                 height: MediaQuery.of(context).size.height * .025,
                 width: MediaQuery.of(context).size.width * .03),
-            SizedBox(width: 2),
+            SizedBox(width: 6),
             Text(
               AppLocalization.of(context)!
                   .getTranslatedValues("leaderboardLbl")!,
-              style: TextStyle(color: Theme.of(context).primaryColor),
+              style: TextStyle(color: Theme.of(context).backgroundColor),
             ),
           ],
         ),
@@ -144,7 +144,7 @@ class _LeaderBoardScreen extends State<LeaderBoardScreen> {
               indicatorWeight: 0,
               indicatorPadding: EdgeInsets.all(10),
               labelColor: backgroundColor,
-              unselectedLabelColor: Theme.of(context).colorScheme.secondary,
+              unselectedLabelColor: Theme.of(context).colorScheme.background,
               labelStyle: Theme.of(context).textTheme.subtitle1,
               indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),

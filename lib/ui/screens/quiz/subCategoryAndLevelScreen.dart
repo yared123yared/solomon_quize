@@ -357,7 +357,8 @@ class _SubcategoryContainerState extends State<SubcategoryContainer>
           scale: scaleAnimation.value,
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.primaries.first.withOpacity(0.5),
+              //  color: Colors.primaries.first.withOpacity(0.5),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20.0)),
             alignment: Alignment.center,
             child: Column(
