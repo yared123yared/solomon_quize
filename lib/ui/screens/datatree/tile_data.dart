@@ -2,35 +2,100 @@ import 'package:flutterquiz/ui/screens/datatree/tile.dart';
 
 final tiles = <Tile>[
   Tile(
-    title: 'Testmant',
-    optionData: [
-      {"option": "Old Testmant", "isChecked": false},
-      {"option": "New Testmant", "isChecked": false}
-    ],
+    title: 'Full Bible',
+
+    isSelected: false,
+   /* tileItem: [
+      Tile(
+        title: 'Main List 1.1',
+
+        isSelected: false,
+        tileItem: [
+          Tile(
+            title: 'Main List 1.1.1',
+
+            isSelected: false,
+          ),
+          Tile(
+            title: 'Main List 1.1.2',
+
+            isSelected: false,
+          ),
+        ],
+      ),
+    ],*/
+    // optionData: [
+    //   {"option": "Option 1", "isChecked": false},
+    //   {"option": "Option 2", "isChecked": false}
+    // ],
   ),
   Tile(
-    title: 'Books',
-    optionData: [
-      {"option": "Numbers", "isChecked": false},
-      {"option": "1 Chronicals", "isChecked": false},
-      {"option": "James", "isChecked": false},
-      {"option": "Isalah", "isChecked": false},
-      {"option": "Exodus", "isChecked": false},
-      {"option": "Proverbs", "isChecked": false},
-      {"option": "Romans", "isChecked": false},
-      {"option": "Mark", "isChecked": false},
-      {"option": "Hebrews", "isChecked": false},
-      {"option": "Galatians", "isChecked": false},
-      {"option": "John", "isChecked": false},
-      {"option": "Daniel", "isChecked": false}
+
+    isSelected: false,
+    title: 'Old Testmant',
+    tileItem: [
+      Tile(
+        title: 'Numbers',
+
+        isSelected: false,
+        tileItem: [
+          Tile(
+            title: 'Proverbs',
+
+            isSelected: false,
+          ),
+          Tile(
+            title: 'Romans',
+
+            isSelected: false,
+          ),
+        ],
+      ),
+    /*  Tile(
+        title: 'Main List 2.2',
+
+        isSelected: false,
+        tileItem: [
+          Tile(
+            title: 'Main List 2.2.1',
+
+            isSelected: false,
+          ),
+        ],
+      ),*/
     ],
+    // optionData: [
+    //   {"option": "Option 1", "isChecked": false},
+    //   {"option": "Option 2", "isChecked": false}
+    // ],
   ),
   Tile(
-    title: 'Chapters',
-    optionData: [
-      {"option": "Chapter 1", "isChecked": false},
-      {"option": "Chapter 2", "isChecked": false},
-      {"option": "Chapter 3", "isChecked": false}
+
+    isSelected: false,
+    title: 'New Testmant',
+    tileItem: [
+      Tile(
+        title: 'Exodus',
+
+        isSelected: false,
+        tileItem: [
+          Tile(
+            title: 'James',
+
+            isSelected: false,
+          ),
+          Tile(
+            title: 'Mark',
+
+            isSelected: false,
+          ),
+        ],
+      ),
     ],
+    // optionData: [
+    //   {"option": "Option 1", "isChecked": false},
+    //   {"option": "Option 2", "isChecked": false},
+    //   {"option": "Option 2", "isChecked": false}
+    // ],
   ),
 ];

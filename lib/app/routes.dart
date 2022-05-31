@@ -72,6 +72,7 @@ class Routes {
   static const result = "/result";
   static const selectRoom = "/selectRoom";
   static const category = "/category";
+
   static const profile = "/profile";
   static const editProfile = "/editProfile";
   static const leaderBoard = "/leaderBoard";
@@ -127,7 +128,7 @@ class Routes {
       case verse:
         return CupertinoPageRoute(builder: (context) => VerseOfDay());
       case learn:
-        return CupertinoPageRoute(builder: (context) => Learning());
+        return CupertinoPageRoute(builder: (context) => OpenQuiz());
       case otpScreen:
         return OtpScreen.route(routeSettings);
       case subcategoryAndLevel:
@@ -159,6 +160,7 @@ class Routes {
         return SelfChallengeQuestionsScreen.route(routeSettings);
       case category:
         return CategoryScreen.route(routeSettings);
+
       case leaderBoard:
         return LeaderBoardScreen.route(routeSettings);
       case bookmark:

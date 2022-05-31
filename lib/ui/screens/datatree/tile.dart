@@ -1,8 +1,13 @@
 class Tile {
   final String title;
-  final List<Map> optionData;
+  //final String subTitle;
+  bool isSelected;
+  final List<Tile> tileItem;
+  // final List<Map> optionData;
   Tile({
     required this.title,
-    required this.optionData,
+    //required this.subTitle,
+    required this.isSelected,
+    this.tileItem = const [],
   });
 }

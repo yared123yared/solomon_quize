@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutterquiz/ui/screens/datatree/tile.dart';
 import 'package:flutterquiz/ui/screens/datatree/tile_data.dart';
 import 'package:sizer/sizer.dart';
 
-class SelectScreen extends StatefulWidget {
-  const SelectScreen({Key? key}) : super(key: key);
+class OpenQuiz extends StatefulWidget {
+  const OpenQuiz({Key? key}) : super(key: key);
 
   @override
-  State<SelectScreen> createState() => _SelectScreenState();
+  State<OpenQuiz> createState() => _OpenQuizState();
 }
 
-class _SelectScreenState extends State<SelectScreen> {
-  // var checkboxTile = List<Widget>;
-  // List<Map> options = [
-  //   {"option": "Option 1", "isChecked": false},
-  //   {"option": "Option 2", "isChecked": false},
-  // ];
+class _OpenQuizState extends State<OpenQuiz> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,7 +20,8 @@ class _SelectScreenState extends State<SelectScreen> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
-            onPressed: () {
+            onPressed: ()
+            {
               Navigator.pop(context);
             },
             icon: const Icon(
@@ -45,80 +42,69 @@ class _SelectScreenState extends State<SelectScreen> {
           child: Center(
             child: Stack(
               children: [
-                Stack(
-                  children: [
-                    Positioned(
-                      bottom: 0,
-                      child: Image(
-                        width: 100.w,
-                        fit: BoxFit.cover,
-                        image: const AssetImage("assets/images/bottom.png"),
-                      ),
-                    ),
-                  ],
-                ),
+
                 SingleChildScrollView(
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        child: Theme(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                          ),
+                          child: Theme(
                             data: Theme.of(context).copyWith(
-                              dividerColor: Colors.blueAccent,
+                              dividerColor: Colors.transparent,
                             ),
-                            child: ListView.builder(
-                              itemCount: tiles.length,
+                            child: ListView(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                var optiondata = tiles[index].optionData;
-                                return Container(
-                                  margin: EdgeInsets.only(
-                                    bottom: 1.h,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                      color: Colors.white30,
-                                    ),
-                                  ),
-                                  child: ExpansionTile(
-                                    title: Text(
-                                      tiles[index].title,
-                                    ),
-                                    children: [
-                                      for (int i = 0;
-                                          i < optiondata.length;
-                                          i++)
-                                        CheckboxListTile(
-                                          value: optiondata[i]['isChecked'],
-                                          title: Text(optiondata[i]['option']),
-                                          onChanged: (newValue) {
-                                            setState(() {
-                                              optiondata[i]['isChecked'] =
-                                                  newValue;
-                                            });
-                                          },
-                                        )
-                                    ],
+                              children: tiles
+                                  .map(
+                                    (tile) => ExpansionWidget(tile: tile),
+                              )
+                                  .toList(),
+                            ),
+                          )),
+                      GestureDetector(
+                        onTap: () {
 
-                                    // children: options
-                                    //     .map((option) => CheckboxListTile(
-                                    //         value: option['isChecked'],
-                                    //         title: Text(option['option']),
-                                    //         onChanged: (newValue) {
-                                    //           setState(() {
-                                    //             option['isChecked'] =
-                                    //                 newValue;
-                                    //           });
-                                    //         }))
-                                    //     .toList(),
-                                  ),
-                                );
-                              },
-                            )),
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFF1C658C),
+                                Color(0xFF398AB9),
+                                Color(0xFF1C658C),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 2.h,
+                              horizontal: 20.w,
+                            ),
+                            child: 7 == 7
+                                ? const Text(
+                              'Play',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                                : const Text(
+                              'Play',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -127,6 +113,79 @@ class _SelectScreenState extends State<SelectScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ExpansionWidget extends StatefulWidget {
+  final Tile tile;
+  const ExpansionWidget({
+    Key? key,
+    required this.tile,
+  }) : super(key: key);
+
+  @override
+  State<ExpansionWidget> createState() => _ExpansionWidgetState();
+}
+
+class _ExpansionWidgetState extends State<ExpansionWidget> {
+  @override
+  Widget build(BuildContext context) {
+    final title = widget.tile.title;
+
+    final tiles = widget.tile.tileItem;
+
+    if (tiles.isEmpty) {
+      return ListTile(
+        title: Row(
+          children: [
+            Checkbox(
+                value: widget.tile.isSelected,
+                onChanged: (value) {
+                  setState(() {
+                    widget.tile.isSelected = value!;
+                  });
+                }),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title),
+
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+    return Container(
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: Colors.white30,
+        ),
+      ),
+      child: ExpansionTile(
+        title: Row(
+          children: [
+            Checkbox(
+                value: widget.tile.isSelected,
+                onChanged: (value) {
+                  setState(() {
+                    widget.tile.isSelected = value!;
+                  });
+                }),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title),
+
+              ],
+            ),
+          ],
+        ),
+        children: tiles.map((tile) => ExpansionWidget(tile: tile)).toList(),
       ),
     );
   }
